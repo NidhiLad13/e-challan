@@ -1,0 +1,8 @@
+.dashboardContainer {
+  border: 0px solid red;
+  width: 50%;
+}
+
+.label {
+  font-weight: 500;
+}

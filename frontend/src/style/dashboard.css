@@ -1,0 +1,101 @@
+.dashboard {
+  /* padding-top: -10vh !important; */
+  /* border: 2px solid red; */
+}
+.header {
+  padding: 0 !important;
+  padding-right: 30px !important;
+  color: rgb(5, 6, 59) !important;
+  background-color: rgb(255, 255, 255) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #088c0b;
+  /* background-color: rgba(233, 233, 232, 0.512); */
+  border-radius: 30%;
+  /* height: 20px; */
+  /* width: 20px; */
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+/* .main {
+  height: 100vh;
+} */
+.sider {
+  overflow: auto;
+  min-height: 100vh;
+  position: sticky;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  /* border: 2px solid red; */
+}
+.menubar {
+  /* border: 2px solid red; */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: end !important; */
+}
+.up {
+  /* border: 2px solid yellow; */
+}
+.down {
+  /* border: 2px solid rgb(3, 2, 26); */
+  position: relative;
+  /* background-color: rgb(6, 6, 64); */
+}
+
+.dashboardContent {
+  background-color: rgb(255, 255, 255);
+  overflow: initial;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  color: rgb(3, 3, 61);
+  border: 0px solid red;
+}
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0px solid red !important;
+  background-color: rgba(243, 243, 243, 0.479);
+  padding-top: 30px;
+  border-radius: 30px;
+  margin-top: 7vh;
+  color: black;
+  width: 70% !important;
+}
+.infoCard {
+  margin-top: 3vh;
+  border: 1px solid rgb(188, 188, 188);
+  background-color: rgba(255, 255, 255, 0.784);
+  border-radius: 20px;
+}
+.info {
+  /* border: 1px solid green; */
+  border-radius: 15px;
+  padding: 4vh;
+  padding-top: 2vh;
+  background-color: rgba(242, 242, 242, 0.447);
+  margin-top: 3vh;
+}

@@ -1,0 +1,59 @@
+.container {
+  border: 2px solid rgb(217, 215, 215);
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 600px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.gender {
+  border: 0px solid rgb(206, 206, 206);
+  border-radius: 5px;
+  /* padding: 5px; */
+  width: 130%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  height: 39px;
+}
+.css-1okj3ks-MuiStack-root > :not(style) + :not(style) {
+  margin-top: 3px !important;
+}
+.form-error {
+  color: red;
+}
+
+.profilePic {
+  border: 1px solid rgba(93, 91, 91, 0.962);
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+.profileBtn {
+  border: 1px solid rgba(189, 187, 187, 0.625);
+  border-radius: 7px;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.profileContainer {
+  border: 0px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  border: 2px solid red;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

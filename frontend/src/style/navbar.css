@@ -1,0 +1,48 @@
+.navContainer {
+  z-index: 2;
+  position: fixed;
+  width: 100vw;
+  /* z-index: 2; */
+}
+.navbar {
+  height: 14vh;
+  background-color: rgba(255, 244, 230, 0.759);
+  /* height: 50px; */
+  padding-top: 2vh;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  padding-bottom: 2vh;
+  box-shadow: 2px 4px 15px 2px rgba(231, 222, 208, 0.852);
+}
+.logo {
+  display: block;
+  position: relative;
+  height: 12vh;
+  width: 19vh;
+  background: transparent;
+}
+.nav-link {
+  color: black;
+  font-size: medium;
+  text-transform: uppercase;
+}
+
+.navbar-collapse {
+  /* border: 2px solid green; */
+  /* width: 10%; */
+  /* background-color: aliceblue; */
+  flex-basis: 100%;
+  flex-grow: 0;
+  margin-right: 35px;
+  /* align-items: center; */
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  position: fixed;
+  min-width: 5rem;
+  border: 1px solid rgba(0, 0, 0, 0.195) !important;
+}
+#password {
+  height: 30px;
+}
