@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from 'react';
 import context from "../Context/userContext.js";
 import Cookies from "js-cookie";
 import '../style/policeForm.css'
-import { Layout } from 'antd';
+import { Layout, Radio } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Input, Form, Select, Upload, Spin } from 'antd';
+import Checkbox from 'antd/es/checkbox/Checkbox';
 const { TextArea } = Input;
 
 const { Header, Content, Footer } = Layout;
@@ -28,14 +29,14 @@ const PoliceForm = () => {
         const due = new Date(d.getFullYear(), d.getMonth() + 1, d.getDate());
         const dueDate = due.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        const { pname, pid, offense, place, plateNum, vehicleType } = vals;
+        const { pname, pid, offense, place, plateNum, vehicleType, status} = vals;
         const res = await fetch('http://localhost:7100/submitChallan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             credentials: 'include',
-            body: JSON.stringify({ pname, pid, offense, place, plateNum, vehicleType, date, time, dueDate })
+            body: JSON.stringify({ pname, pid, offense, place, plateNum, vehicleType, date, time, dueDate , status})
         })
 
         const data = await res.json();
@@ -147,6 +148,20 @@ const PoliceForm = () => {
                                             <Upload name="logo" action="/upload.do" listType="picture">
                                                 <Button icon={<UploadOutlined />}>Click to upload</Button>
                                             </Upload>
+                                        </Form.Item> */}
+
+                                        {/* <Form.Item className='label' label="Payment Status" name='status'
+                                            rules={[
+                                                {
+                                                    required: true,
+                                                    message: 'Please select payment type!',
+                                                },
+                                            ]}
+                                        >
+                                            <Radio.Group>
+                                            <Radio value={'Done'}>Done</Radio>
+                                            <Radio value={'Pending'}>Pending</Radio>
+                                            </Radio.Group>
                                         </Form.Item> */}
 
                                         <Form.Item wrapperCol={{ span: 12, offset: 8, }}>

@@ -163,49 +163,33 @@ router.get('/logout', (req, res) => {
     return res.json({ loggedOut: req.cookies.person + " logged out" })
 })
 
-router.post('/checkout', async (req, res)=>{
-    console.log(req.body)    
+router.post('/checkout', async (req, res) => {
+    // console.log(req.body)
     let error, status
 
-    try {     
-      const {am, token} = req.body
+    try {
+        const { currAmt,totalAmt,status,chid } = req.body;
+        console.log('currAmt :>> ', currAmt);
+        console.log('totalAmt :>> ', totalAmt);
+        console.log('status :>> ', status);
+        console.log('challanId :>> ', chid);
+        
+        if(chid)
+        {
+            const challan = await Challan.updateOne({_id:chid}, {$set:{status:"done"}})
+            // console.log(challan);
+        }
+        else {
 
-      const user = await stripe.user.create({
-          email: token.email,
-          source: token.id
-      })
-
-      const key = uuid()
-
-      const charge = await stripe.charges.create({
-          amount: am.price,
-          currency: "usd",
-          user: user.id,
-          receipt_email: token.email,
-          description: `paying ${am.name}`,
-          shipping:{
-            name: token.card.name,
-            address:{
-                line1: token.card.address_line1,
-                line2: token.card.address_line2,
-                city: token.card.address_country,
-                postal_code: token.card.address_zip,
-            },
-          },
-      },
-      {
-        key,   
-      });
-
-      console.log("charge", {charge});
-      status = "success";
-    } 
-    catch ({error}) {
-      console.log(error)
-      status = "fail";
+            return res.status(400).json({ err: 'payment fail' })
+        }
+    }
+    catch ({ error }) {
+        console.log(error)
+        status = "fail";
     }
 
-    res.json({error, status});
+    res.json({ error, status });
 })
 
 router.get('/getData', async (req, res) => {
@@ -286,7 +270,7 @@ router.post('/submitChallan', async (req, res) => {
         return res.status(200).json({ success: "challan submitted successfully" })
     }
     catch (err) {
-        return res.json({ err: "challan is not submitted" })
+        return res.json({ err: "vehical does not exist in RTO database" })
     }
 })
 module.exports = router;
