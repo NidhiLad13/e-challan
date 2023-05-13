@@ -31,7 +31,7 @@ export default function Profile() {
     useEffect(() => {
         var temp=0;
         Object.keys(challans).map((elem)=>{
-            challans[elem].status==="pending"?temp+=challans[elem].amount:"";
+            challans[elem].status==="pending"?temp+=challans[elem].amount:temp+=0;
         })
         setTotal(temp);
         setAm({...am,price:temp});
