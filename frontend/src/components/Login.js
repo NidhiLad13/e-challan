@@ -1,6 +1,7 @@
 import { Button, Form, Input } from 'antd';
 import { useContext, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import context from "../Context/userContext.js";
 import '../style/login.css'
 import { Layout, Menu, theme, message, Result, Spin, Alert } from 'antd';
@@ -10,6 +11,7 @@ import userImg from '../assets/user.png';
 import adminImg from '../assets/Admin.png';
 import policeImg from '../assets/police.png';
 import PoliceForm from './PoliceForm.js';
+import UserForm from './UserForm';
 import Cookies from 'js-cookie';
 
 const Login = () => {
@@ -64,7 +66,7 @@ const Login = () => {
             if (person === 'user') {
                 alert(data.success)
                 let lastPropertyName = Object.keys(data).pop();
-                delete data[lastPropertyName];
+                //delete data[lastPropertyName];
                 console.log(data);
                 setChallans(data);
                 setUser({ name: data[0].user, id: data[0].licenseNo });
@@ -114,11 +116,14 @@ const Login = () => {
                                             rules={[
                                                 {
                                                     required: true,
-                                                    message: 'Please input your registered mobile number!',
+                                                    message: 'Please input your registered vehical number!',
                                                 },
                                             ]}
+                                            
                                         >
                                             <Input onChange={(e) => setUname(e.target.value)} />
+                                            {person === 'user' && 
+                                            <Link class="" to="/userform" >New Vehical Register</Link>}
                                         </Form.Item>
 
                                         <Form.Item
@@ -141,6 +146,10 @@ const Login = () => {
                                             <Button type="primary" htmlType='submit' onClick={handleLogin}>
                                                 Submit
                                             </Button>
+                                        </Form.Item>
+
+                                        <Form.Item>
+                                           
                                         </Form.Item>
                                     </Form>
                                     <p class="text">

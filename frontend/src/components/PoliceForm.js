@@ -14,13 +14,13 @@ const PoliceForm = () => {
     const { user, logged, setLogged } = useContext(context)
     const { Option } = Select;
     const formItemLayout = { labelCol: { span: 6 }, wrapperCol: { span: 14 }, };
-    const normFile = (e) => {
-        console.log('Upload event:', e);
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e?.fileList;
-    };
+    // const normFile = (e) => {
+    //     console.log('Upload event:', e);
+    //     if (Array.isArray(e)) {
+    //         return e;
+    //     }
+    //     return e?.fileList;
+    // };
     const onFinish = async (vals) => {
         const d = new Date();
         const date = d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -68,8 +68,8 @@ const PoliceForm = () => {
             <div >
                 <Layout >
                     <Layout className="site-layout" style={{ marginLeft: 15, marginRight: 15, minHeight: '100vh' }} >
-                        <Header className='header'>
-                            <h4>Challan Form</h4>
+                        <Header className='header' style={{ justifyContent: 'center', marginTop: '20px' }}>
+                            <h3>Challan Form</h3>
                         </Header>
 
                         <Content className='dashboardContent' style={{ padding: 0, paddingBottom: 20 }}>

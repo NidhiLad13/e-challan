@@ -17,6 +17,10 @@ import ErrorPage from './components/ErrorPage';
 import PoliceForm from './components/PoliceForm';
 import Profile from './components/Profile';
 import userContext from './Context/userContext';
+import About from './components/About';
+import Service from './components/Service';
+import Contact from './components/Contact';
+import UserForm from './components/UserForm';
 
 
 function App() {
@@ -62,6 +66,7 @@ function App() {
   return (
     <>
       <userContext.Provider value={{ user, setUser, nav, setNav, logged, setLogged, challans, setChallans }}>
+     
         <Router>
           <div>
             {nav && <NavigationBar />}
@@ -73,11 +78,14 @@ function App() {
               <Route exact path='/dashboard' component={Cookies.get('person') === 'admin' || 'superAdmin' ? Dashboard : ErrorPage} />
               <Route exact path='/policeForm' component={Cookies.get('person') === 'police' ? PoliceForm : ErrorPage} />
               <Route exact path='/profile' component={Cookies.get('person') === 'user' ? Profile : ErrorPage} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/service' component={Service} />
+              <Route exact path='/contact' component={Contact} />
+              <Route exact path='/userform' component={UserForm} />
             </Switch>
           </div>
         </Router>
       </userContext.Provider>
-
     </>
   );
 }

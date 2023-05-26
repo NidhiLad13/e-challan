@@ -130,7 +130,7 @@ export default function Register({ registerFor }) {
                     </FormGroup> */}
                     <FormGroup>
                         <Label for="Name"><b>Name</b></Label>
-                        <Input invalid={errors.name && touched.name} valid={!errors.name && touched.name} placeholder="name..." type="text" name='name' id='name' size='sm' value={values.name} onChange={handleChange} onBlur={handleBlur} />
+                        <Input invalid={errors.name && touched.name} valid={!errors.name && touched.name} placeholder="name..." type="text" name='name' id='name' size='sm' value={values.name} onBlur={handleBlur} />
                         {errors.name && touched.name ? <p className='form-error' color='red'>{errors.name}</p> : null}
                     </FormGroup>
 

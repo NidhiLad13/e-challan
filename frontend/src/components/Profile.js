@@ -7,6 +7,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { DownOutlined, FrownFilled, MehOutlined, SmileOutlined, FrownOutlined } from '@ant-design/icons';
 import '../style/profile.css'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 const { Header, Content, Footer } = Layout;
 
 
@@ -35,7 +36,6 @@ export default function Profile() {
         console.log(response.status);
     }
 
-    
     return (
         <Layout >
             <Layout className="site-layout" style={{ marginLeft: 15, marginRight: 15, minHeight: '100vh' }} >

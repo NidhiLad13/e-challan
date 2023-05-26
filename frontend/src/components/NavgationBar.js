@@ -33,17 +33,17 @@ function NavigationBar() {
                                 </Link>
                             </li>
                             <li>
-                                <Link class="nav-link" to="/" role="button"  >
+                                <Link class="nav-link" to="/about" role="button" >
                                     About
                                 </Link>
                             </li>
                             <li>
-                                <Link class="nav-link" to="/" role="button"  >
+                                <Link class="nav-link" to="/service" role="button"  >
                                     Services
                                 </Link>
                             </li>
                             <li>
-                                <Link class="nav-link" to="/" role="button"  >
+                                <Link class="nav-link" to="/contact" role="button"  >
                                     Contact
                                 </Link>
                             </li>

@@ -1,5 +1,8 @@
 import React, { useContext } from 'react'
 import context from "../Context/userContext.js";
+import About from "./About";
+import Service from "./Service";
+import Contact from "./Contact";
 
 export default function Home() {
     const { user, setUser } = useContext(context);
@@ -13,8 +16,9 @@ export default function Home() {
                 {/* {Cookies.get('person') && <h1>Hello {Cookies.get('person')}</h1>} */}
 
             </div>
-
-
+            {/* <About></About>
+            <Service></Service>
+            <Contact></Contact> */}
         </>
     )
 }

@@ -21,6 +21,18 @@ router.get('/', (req, res) => {
     res.send("hello home")
 })
 
+router.get('/about', (req, res) => {
+    res.send("hello about")
+})
+
+router.get('/service', (req, res) => {
+    res.send("hello service")
+})
+
+router.get('/contact', (req, res) => {
+    res.send("hello contact")
+})
+
 router.post('/register', async (req, res) => {
     const { name, id, bday, email, adhaar, password, mobile, gender, address, registerfor } = req.body;
     try {
@@ -176,7 +188,7 @@ router.post('/checkout', async (req, res) => {
         
         if(chid)
         {
-            const challan = await Challan.updateOne({_id:chid}, {$set:{status:"done"}})
+            const challan = await Challan.updateOne({_id:chid}, {$set:{status:"Done"}})
             // console.log(challan);
         }
         else {
@@ -213,6 +225,8 @@ router.get('/getData', async (req, res) => {
         console.log('err in adminInfo auth :>> ', err);
     }
 })
+
+
 router.get('/getChallans', async (req, res) => {
     try {
         const challans = await Challan.find();
@@ -273,4 +287,28 @@ router.post('/submitChallan', async (req, res) => {
         return res.json({ err: "vehical does not exist in RTO database" })
     }
 })
+
+router.post('/userform', async (req,res) =>{
+  try{
+      const {name, email, contact, aadharNo, address, dob, licenseNo, vehicleNo } = req.body;
+      console.log('req.body :>> ', req.body);
+
+      const ae = await User.findOne({licenseNo : licenseNo});
+      if(ae)
+      {         
+            const user = await User.insertOne({vehicleNo: vehicleNo})
+            console.log('user :>> ', user);
+
+      }
+      const user = new User({
+          name: name, email: email, contact: contact, aadharNo: aadharNo, address: address, dob: dob, licenseNo: licenseNo, vehicleNo: vehicleNo
+      })
+      await user.save();
+      return res.status(200).json({success: "Vehicle successfully registered.!"})
+  }  
+  catch(err) {
+      return res.json({ err: "vehical does not exist in RTO database" })
+  }
+})
+
 module.exports = router;
